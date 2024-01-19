@@ -1,0 +1,17 @@
+# serverless.yml
+service: your-serverless-app  # Set your desired service name here
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  app:
+    handler: app.handler
+    events:
+      - http:
+          path: /
+          method: any
+      - http:
+          path: /{proxy+}
+          method: any
